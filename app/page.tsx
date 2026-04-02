@@ -11,7 +11,7 @@ import { ProcessSection } from "@/features/homepage/sections/process-section";
 import { ProofStripSection } from "@/features/homepage/sections/proof-strip-section";
 import { WhyItConvertsSection } from "@/features/homepage/sections/why-it-converts-section";
 
-const siteUrl = "https://example.com";
+const siteUrl = "https://north-star-studio.vercel.app";
 
 export const metadata: Metadata = {
   title: "Northstar Studio | Landing pages y sitios web para negocios de servicios",

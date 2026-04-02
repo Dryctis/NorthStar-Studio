@@ -2,7 +2,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import "./globals.css";
 
-const siteUrl = "https://example.com";
+const siteUrl = "https://north-star-studio.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
