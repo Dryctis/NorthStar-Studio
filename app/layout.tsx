@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   },
   description:
     "Northstar Studio diseña sitios web y landing pages de alto impacto para negocios de servicios que necesitan convertir mejor su presencia digital en oportunidades comerciales.",
+  verification: {
+    google: "zk6492gJjUwN-2slsuiKHWYZwhXdxxX2oaHM45NKbU8",
+  },
   keywords: [
     "landing pages para negocios de servicios",
     "sitios web para captar clientes",
