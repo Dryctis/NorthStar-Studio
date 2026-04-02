@@ -12,7 +12,7 @@ type ButtonProps = {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "border border-transparent bg-[linear-gradient(120deg,#4f62e8,#6f7df3)] text-primary-foreground shadow-[0_14px_28px_rgba(79,98,232,0.24)] hover:brightness-95",
+    "border border-transparent bg-[linear-gradient(120deg,#4f62e8,#6f7df3)] text-primary-foreground shadow-[0_8px_18px_rgba(79,98,232,0.16)] hover:brightness-95 hover:shadow-[0_12px_24px_rgba(79,98,232,0.22)]",
   secondary:
     "border border-border/90 bg-card/75 text-foreground shadow-[0_10px_24px_rgba(70,57,43,0.08)] hover:bg-secondary",
   ghost:
