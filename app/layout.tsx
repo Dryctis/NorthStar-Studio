@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -6,7 +7,8 @@ const siteUrl = "https://example.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Northstar Studio | Sitios web de alto impacto para negocios de servicios",
+    default:
+      "Northstar Studio | Sitios web de alto impacto para negocios de servicios",
     template: "%s | Northstar Studio",
   },
   description:
@@ -45,7 +47,8 @@ export const metadata: Metadata = {
     locale: "es_ES",
     url: siteUrl,
     siteName: "Northstar Studio",
-    title: "Northstar Studio | Sitios web de alto impacto para negocios de servicios",
+    title:
+      "Northstar Studio | Sitios web de alto impacto para negocios de servicios",
     description:
       "Sitios web y landing pages premium diseñados para convertir visitas en oportunidades comerciales.",
     images: [
@@ -59,7 +62,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Northstar Studio | Sitios web de alto impacto para negocios de servicios",
+    title:
+      "Northstar Studio | Sitios web de alto impacto para negocios de servicios",
     description:
       "Sitios web y landing pages premium diseñados para convertir visitas en oportunidades comerciales.",
     images: ["/og-image.jpg"],
@@ -78,7 +82,10 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <body>
+        {children}
+        <GoogleAnalytics gaId="G-KPXBEYEYJ9" />
+      </body>
     </html>
   );
 }
