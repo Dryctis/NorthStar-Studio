@@ -54,20 +54,20 @@ type ProcessStepCardProps = {
 
 function ProcessStepCard({ step, index, total, scrollYProgress }: ProcessStepCardProps) {
   const prefersReducedMotion = useReducedMotion();
-  const start = index * (0.58 / total);
-  const end = start + 0.24;
+  const start = index * (0.64 / total);
+  const end = start + 0.27;
 
   const cardProgress = useTransform(scrollYProgress, [start, end], [0, 1]);
-  const y = useTransform(cardProgress, [0, 1], [26, 0]);
-  const opacity = useTransform(cardProgress, [0, 1], [0.62, 1]);
-  const scale = useTransform(cardProgress, [0, 1], [0.985, 1]);
-  const glowOpacity = useTransform(cardProgress, [0, 1], [0, 0.13]);
+  const y = useTransform(cardProgress, [0, 1], [40, 0]);
+  const opacity = useTransform(cardProgress, [0, 1], [0.45, 1]);
+  const scale = useTransform(cardProgress, [0, 1], [0.97, 1]);
+  const glowOpacity = useTransform(cardProgress, [0, 1], [0, 0.2]);
 
   return (
     <motion.div
       className="relative lg:sticky"
       style={{
-        top: `calc(6rem + ${index * 1.4}rem)`,
+        top: `calc(6rem + ${index * 1.15}rem)`,
         y: prefersReducedMotion ? 0 : y,
         opacity: prefersReducedMotion ? 1 : opacity,
         scale: prefersReducedMotion ? 1 : scale,
@@ -99,7 +99,7 @@ export function ProcessSection() {
   const stackRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: stackRef,
-    offset: ["start 80%", "end 42%"],
+    offset: ["start 82%", "end 36%"],
   });
 
   return (
@@ -115,7 +115,7 @@ export function ProcessSection() {
 
       <div ref={stackRef} className="relative mt-10 space-y-4 sm:mt-12 sm:space-y-5 lg:mt-16 lg:space-y-0">
         {steps.map((step, index) => (
-          <div key={step.number} className={index === 0 ? "" : "lg:-mt-16"}>
+          <div key={step.number} className={index === 0 ? "" : "lg:-mt-20"}>
             <ProcessStepCard
               step={step}
               index={index}
