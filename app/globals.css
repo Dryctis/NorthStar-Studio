@@ -1,30 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --background: #05070c;
-  --foreground: #f5f7ff;
+  --background: #f2eee6;
+  --foreground: #1a1a22;
 
-  --card: #0b101a;
-  --card-foreground: #f5f7ff;
+  --card: #fbf8f2;
+  --card-foreground: #1a1a22;
 
-  --popover: #0b101a;
-  --popover-foreground: #f5f7ff;
+  --popover: #fbf8f2;
+  --popover-foreground: #1a1a22;
 
-  --primary: #f5f7ff;
-  --primary-foreground: #05070c;
+  --primary: #4657db;
+  --primary-foreground: #f9f7f1;
 
-  --secondary: #101827;
-  --secondary-foreground: #d7deef;
+  --secondary: #ece4d7;
+  --secondary-foreground: #262736;
 
-  --muted: #0f1523;
-  --muted-foreground: #9ba8c4;
+  --muted: #eee8dc;
+  --muted-foreground: #6a6a7f;
 
-  --accent: #77b5ff;
-  --accent-foreground: #041021;
+  --accent: #6f7df3;
+  --accent-foreground: #f8f7ff;
 
-  --border: #1a2438;
-  --input: #1a2438;
-  --ring: #77b5ff;
+  --border: #dcd3c5;
+  --input: #dcd3c5;
+  --ring: #6f7df3;
 
   --radius: 1rem;
 }
@@ -67,22 +67,23 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
   min-height: 100%;
   background:
-    radial-gradient(circle at 10% -10%, rgba(60, 110, 190, 0.2), transparent 38%),
-    radial-gradient(circle at 92% 8%, rgba(150, 95, 220, 0.14), transparent 36%),
-    repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.015) 0 1px, transparent 1px 42px),
-    linear-gradient(180deg, #05070c 0%, #05070c 45%, #060a11 100%);
+    radial-gradient(circle at 8% -6%, rgba(128, 112, 255, 0.22), transparent 34%),
+    radial-gradient(circle at 92% 0%, rgba(90, 156, 255, 0.2), transparent 36%),
+    radial-gradient(circle at 55% 115%, rgba(205, 184, 255, 0.18), transparent 38%),
+    repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.22) 0 1px, transparent 1px 40px),
+    linear-gradient(180deg, #f2eee6 0%, #f4efe7 50%, #efe8dc 100%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: rgba(119, 181, 255, 0.3);
-  color: #f5f7ff;
+  background: rgba(111, 125, 243, 0.22);
+  color: #1a1a22;
 }

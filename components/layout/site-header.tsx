@@ -41,7 +41,7 @@ export function SiteHeader() {
         className={cn(
           "sticky top-0 z-50 transition-all duration-300 ease-out",
           isScrolled
-            ? "border-b border-border/80 bg-background/72 shadow-[0_12px_44px_rgba(2,6,14,0.55)] backdrop-blur-xl"
+            ? "border-b border-border/90 bg-background/80 shadow-[0_14px_40px_rgba(44,39,70,0.08)] backdrop-blur-xl"
             : "border-b border-transparent bg-transparent"
         )}
       >
@@ -50,17 +50,17 @@ export function SiteHeader() {
             href="/"
             className="group flex items-center gap-3 text-sm font-semibold tracking-tight text-foreground"
           >
-            <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-full border border-border bg-card/70">
+            <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/80 bg-card/80">
               <span
                 aria-hidden="true"
                 className="absolute inset-0 rounded-full bg-accent/20 blur-md transition-opacity duration-300 group-hover:opacity-90"
               />
-              <NorthstarMark className="relative h-5 w-5 text-foreground" />
+              <NorthstarMark className="relative h-5 w-5 text-accent" />
             </span>
             <span className="text-sm tracking-[0.02em]">Northstar Studio</span>
           </Link>
 
-          <nav className="hidden items-center gap-2 rounded-full border border-border/80 bg-card/50 px-2 py-1 md:flex">
+          <nav className="hidden items-center gap-2 rounded-full border border-border/80 bg-card/70 px-2 py-1 shadow-[0_8px_24px_rgba(44,39,70,0.06)] md:flex">
             {navigationItems.map((item) => (
               <a
                 key={item.href}
@@ -81,7 +81,7 @@ export function SiteHeader() {
             aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/90 text-foreground transition-colors hover:bg-secondary md:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/90 bg-card/90 text-foreground transition-colors hover:bg-secondary md:hidden"
           >
             <span className="sr-only">
               {isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
@@ -143,7 +143,7 @@ export function SiteHeader() {
         {isMobileMenuOpen ? (
           <>
             <motion.div
-              className="fixed inset-0 z-40 bg-black/45 backdrop-blur-[3px] md:hidden"
+              className="fixed inset-0 z-40 bg-[#261f3d]/15 backdrop-blur-[3px] md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -159,7 +159,7 @@ export function SiteHeader() {
               transition={{ duration: 0.22, ease: "easeOut" }}
             >
               <Container>
-                <div className="rounded-[1.5rem] border border-border bg-card/95 p-3.5 shadow-[0_24px_60px_rgba(0,0,0,0.45)] backdrop-blur-md">
+                <div className="rounded-[1.5rem] border border-border/90 bg-card/95 p-3.5 shadow-[0_20px_54px_rgba(44,39,70,0.14)] backdrop-blur-md">
                   <nav className="space-y-1.5">
                     {navigationItems.map((item) => (
                       <a
@@ -173,7 +173,7 @@ export function SiteHeader() {
                     ))}
                   </nav>
 
-                  <div className="mt-3 border-t border-border/70 pt-3">
+                  <div className="mt-3 border-t border-border/80 pt-3">
                     <Button href={primaryCta.href} className="h-11 w-full">
                       {primaryCta.label}
                     </Button>
