@@ -1,24 +1,8 @@
-"use client";
-
-import { useRef } from "react";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-  type MotionValue,
-} from "motion/react";
 import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-type Step = {
-  number: string;
-  title: string;
-  description: string;
-};
-
-const steps: Step[] = [
+const steps = [
   {
     number: "01",
     title: "Diagnóstico y enfoque",
@@ -45,65 +29,9 @@ const steps: Step[] = [
   },
 ];
 
-type ProcessStepCardProps = {
-  step: Step;
-  index: number;
-  total: number;
-  scrollYProgress: MotionValue<number>;
-};
-
-function ProcessStepCard({ step, index, total, scrollYProgress }: ProcessStepCardProps) {
-  const prefersReducedMotion = useReducedMotion();
-  const start = index * (0.64 / total);
-  const end = start + 0.27;
-
-  const cardProgress = useTransform(scrollYProgress, [start, end], [0, 1]);
-  const y = useTransform(cardProgress, [0, 1], [52, 0]);
-  const opacity = useTransform(cardProgress, [0, 1], [0.36, 1]);
-  const scale = useTransform(cardProgress, [0, 1], [0.97, 1]);
-  const glowOpacity = useTransform(cardProgress, [0, 1], [0, 0.24]);
-
-  return (
-    <motion.div
-      className="relative lg:sticky"
-      style={{
-        top: `calc(5.5rem + ${index * 1.1}rem)`,
-        y: prefersReducedMotion ? 0 : y,
-        opacity: prefersReducedMotion ? 1 : opacity,
-        scale: prefersReducedMotion ? 1 : scale,
-      }}
-    >
-      <motion.div
-        className="pointer-events-none absolute inset-0 rounded-[1.75rem] bg-[radial-gradient(circle_at_20%_-10%,rgba(111,125,243,0.22),transparent_55%)]"
-        style={{ opacity: prefersReducedMotion ? 0.08 : glowOpacity }}
-      />
-
-      <div className="relative rounded-[1.5rem] border border-border/75 bg-card/90 p-5 shadow-[0_16px_38px_rgba(44,39,70,0.1)] transition-all duration-200 ease-out sm:rounded-[1.6rem] sm:p-6 lg:rounded-[1.75rem] lg:p-7">
-        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground sm:text-xs">
-          {step.number}
-        </p>
-
-        <h3 className="mt-3 text-xl font-semibold tracking-tight text-foreground sm:mt-4 sm:text-[22px] lg:text-2xl">
-          {step.title}
-        </h3>
-
-        <p className="mt-3 text-sm leading-7 text-muted-foreground sm:mt-4 sm:text-[15px] lg:text-base">
-          {step.description}
-        </p>
-      </div>
-    </motion.div>
-  );
-}
-
 export function ProcessSection() {
-  const stackRef = useRef<HTMLDivElement | null>(null);
-  const { scrollYProgress } = useScroll({
-    target: stackRef,
-    offset: ["start 82%", "end 16%"],
-  });
-
   return (
-    <Section id="process">
+    <Section id="process" className="section-surface-ivory section-divider-soft">
       <Reveal>
         <SectionHeading
           eyebrow="Proceso de trabajo"
@@ -113,16 +41,30 @@ export function ProcessSection() {
         />
       </Reveal>
 
-      <div ref={stackRef} className="relative mt-10 space-y-4 pb-2 sm:mt-12 sm:space-y-5 lg:mt-16 lg:space-y-7 lg:pb-24">
+      <div className="relative mt-10 grid gap-4 sm:mt-12 sm:gap-5 lg:mt-16 lg:grid-cols-4 lg:gap-6">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-0 right-0 top-6 hidden h-px bg-gradient-to-r from-transparent via-border/80 to-transparent lg:block"
+        />
         {steps.map((step, index) => (
-          <div key={step.number} className="lg:min-h-[13.5rem]">
-            <ProcessStepCard
-              step={step}
-              index={index}
-              total={steps.length}
-              scrollYProgress={scrollYProgress}
-            />
-          </div>
+          <Reveal key={step.number} variant="card" delay={index * 0.06}>
+            <article className="relative rounded-[1.5rem] border border-border/70 bg-card p-5 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(17,18,20,0.05)] sm:rounded-[1.6rem] sm:p-6 lg:rounded-[1.75rem] lg:p-7">
+              <div className="mb-4 flex items-center gap-3 sm:mb-5">
+                <span className="inline-flex h-9 min-w-9 items-center justify-center rounded-full border border-border/80 bg-background px-3 text-[11px] font-semibold tracking-[0.18em] text-muted-foreground sm:h-10 sm:min-w-10 sm:text-xs">
+                  {step.number}
+                </span>
+                <span className="h-px flex-1 bg-border/70" />
+              </div>
+
+              <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-[22px] lg:text-2xl">
+                {step.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-7 text-muted-foreground sm:mt-4 sm:text-[15px] lg:text-base">
+                {step.description}
+              </p>
+            </article>
+          </Reveal>
         ))}
       </div>
     </Section>
