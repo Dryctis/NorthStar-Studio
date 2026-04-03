@@ -67,6 +67,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 body {
@@ -95,4 +96,9 @@ body {
 .section-divider-soft {
   border-top: 1px solid color-mix(in oklab, var(--border) 80%, white 20%);
   border-bottom: 1px solid color-mix(in oklab, var(--border) 78%, white 22%);
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 24%, white 76%);
+  color: var(--foreground);
 }
