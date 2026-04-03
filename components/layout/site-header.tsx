@@ -71,80 +71,80 @@ export function SiteHeader() {
           </div>
 
           <button
-  type="button"
-  aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
-  aria-expanded={isMobileMenuOpen}
-  onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-card text-foreground transition-colors hover:bg-secondary md:hidden"
->
-  <span className="sr-only">
-    {isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
-  </span>
+            type="button"
+            aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-card text-foreground transition-colors hover:bg-secondary md:hidden"
+          >
+            <span className="sr-only">
+              {isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            </span>
 
-  <div className="relative h-[18px] w-[18px]">
-    <span
-      className={cn(
-        "absolute inset-0 transition-all duration-200 ease-out",
-        isMobileMenuOpen ? "scale-90 opacity-0" : "scale-100 opacity-100"
-      )}
-    >
-      <svg
-        viewBox="0 0 18 18"
-        className="h-[18px] w-[18px]"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path
-          d="M3 4.75H15"
-          stroke="currentColor"
-          strokeWidth="1.7"
-          strokeLinecap="round"
-        />
-        <path
-          d="M3 9H15"
-          stroke="currentColor"
-          strokeWidth="1.7"
-          strokeLinecap="round"
-        />
-        <path
-          d="M3 13.25H15"
-          stroke="currentColor"
-          strokeWidth="1.7"
-          strokeLinecap="round"
-        />
-      </svg>
-    </span>
+            <div className="relative h-[18px] w-[18px]">
+              <span
+                className={cn(
+                  "absolute inset-0 transition-all duration-200 ease-out",
+                  isMobileMenuOpen ? "scale-90 opacity-0" : "scale-100 opacity-100"
+                )}
+              >
+                <svg
+                  viewBox="0 0 18 18"
+                  className="h-[18px] w-[18px]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 4.75H15"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M3 9H15"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M3 13.25H15"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
 
-    <span
-      className={cn(
-        "absolute inset-0 transition-all duration-200 ease-out",
-        isMobileMenuOpen ? "scale-100 opacity-100" : "scale-90 opacity-0"
-      )}
-    >
-      <svg
-        viewBox="0 0 18 18"
-        className="h-[18px] w-[18px]"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path
-          d="M4.5 4.5L13.5 13.5"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-        />
-        <path
-          d="M13.5 4.5L4.5 13.5"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-        />
-      </svg>
-    </span>
-  </div>
-</button>
+              <span
+                className={cn(
+                  "absolute inset-0 transition-all duration-200 ease-out",
+                  isMobileMenuOpen ? "scale-100 opacity-100" : "scale-90 opacity-0"
+                )}
+              >
+                <svg
+                  viewBox="0 0 18 18"
+                  className="h-[18px] w-[18px]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4.5 4.5L13.5 13.5"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M13.5 4.5L4.5 13.5"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+            </div>
+          </button>
         </Container>
       </header>
 
