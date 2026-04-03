@@ -51,6 +51,7 @@ export function ProcessSection() {
             <article
               className="relative rounded-[1.5rem] border border-border/70 bg-card p-5 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(17,18,20,0.05)] sm:rounded-[1.6rem] sm:p-6 lg:rounded-[1.75rem] lg:p-7"
             >
+            <article className="relative rounded-[1.5rem] border border-border/70 bg-card p-5 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(17,18,20,0.05)] sm:rounded-[1.6rem] sm:p-6 lg:rounded-[1.75rem] lg:p-7">
               <div className="mb-4 flex items-center gap-3 sm:mb-5">
                 <span className="inline-flex h-9 min-w-9 items-center justify-center rounded-full border border-border/80 bg-background px-3 text-[11px] font-semibold tracking-[0.18em] text-muted-foreground sm:h-10 sm:min-w-10 sm:text-xs">
                   {step.number}
