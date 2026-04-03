@@ -48,18 +48,24 @@ export function SiteHeader() {
         <Container className="flex h-16 items-center justify-between md:h-20">
           <Link
             href="/"
-            className="flex items-center gap-2.5 text-sm font-semibold tracking-tight text-foreground"
+            className="group flex items-center gap-3 text-sm font-semibold tracking-tight text-foreground"
           >
-            <NorthstarMark className="h-5 w-5 text-foreground" />
-            <span>Northstar Studio</span>
+            <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/80 bg-card/80">
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full bg-accent/20 blur-md transition-opacity duration-300 group-hover:opacity-90"
+              />
+              <NorthstarMark className="relative h-5 w-5 text-accent" />
+            </span>
+            <span className="text-sm tracking-[0.02em]">Northstar Studio</span>
           </Link>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-2 rounded-full border border-border/80 bg-card/70 px-2 py-1 shadow-[0_8px_24px_rgba(44,39,70,0.06)] md:flex">
             {navigationItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                className="rounded-full px-3 py-1.5 text-sm text-muted-foreground transition-colors duration-200 hover:bg-secondary hover:text-foreground"
               >
                 {item.label}
               </a>
@@ -75,7 +81,7 @@ export function SiteHeader() {
             aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-card text-foreground transition-colors hover:bg-secondary md:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/90 bg-card/90 text-foreground transition-colors hover:bg-secondary md:hidden"
           >
             <span className="sr-only">
               {isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
@@ -95,24 +101,9 @@ export function SiteHeader() {
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
                 >
-                  <path
-                    d="M3 4.75H15"
-                    stroke="currentColor"
-                    strokeWidth="1.7"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M3 9H15"
-                    stroke="currentColor"
-                    strokeWidth="1.7"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M3 13.25H15"
-                    stroke="currentColor"
-                    strokeWidth="1.7"
-                    strokeLinecap="round"
-                  />
+                  <path d="M3 4.75H15" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M3 9H15" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M3 13.25H15" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
                 </svg>
               </span>
 
