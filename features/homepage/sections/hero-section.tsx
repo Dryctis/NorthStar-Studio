@@ -90,6 +90,10 @@ export function HeroSection() {
             aria-hidden="true"
             className="absolute -right-6 bottom-5 hidden h-24 w-24 rounded-full bg-foreground/5 blur-3xl sm:block md:-right-8 md:bottom-6 md:h-28 md:w-28"
           />
+          {...motionPresets.heroVisual}
+        >
+          <div className="absolute -left-8 top-8 hidden h-28 w-28 rounded-full bg-accent/8 blur-3xl sm:block md:-left-10 md:top-10 md:h-32 md:w-32" />
+          <div className="absolute -right-6 bottom-5 hidden h-24 w-24 rounded-full bg-foreground/5 blur-3xl sm:block md:-right-8 md:bottom-6 md:h-28 md:w-28" />
 
           <div className="relative rounded-[1.6rem] border border-border/80 bg-card p-3 shadow-[0_18px_52px_rgba(17,18,20,0.06)] sm:rounded-[1.8rem] sm:p-4 md:rounded-[2rem]">
             <div className="rounded-[1.2rem] border border-border/70 bg-background p-4 sm:rounded-[1.35rem] sm:p-4 md:rounded-[1.5rem] md:p-5">
