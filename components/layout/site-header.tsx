@@ -95,9 +95,24 @@ export function SiteHeader() {
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
                 >
-                  <path d="M3 4.75H15" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                  <path d="M3 9H15" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                  <path d="M3 13.25H15" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path
+                    d="M3 4.75H15"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M3 9H15"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M3 13.25H15"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                  />
                 </svg>
               </span>
 
