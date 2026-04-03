@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { navigationItems, primaryCta } from "@/data/site/navigation";
 import { Container } from "@/components/ui/container";
