@@ -86,7 +86,11 @@ export function Northstar3DMark({ className }: Northstar3DMarkProps) {
     // Geometría de prueba temporal para validar pipeline 3D visible
     const probe = new THREE.Mesh(
       new THREE.SphereGeometry(0.08, 16, 16),
-      new THREE.MeshStandardMaterial({ color: new THREE.Color("#7d8cff"), emissive: new THREE.Color("#7d8cff"), emissiveIntensity: 0.15 })
+      new THREE.MeshStandardMaterial({
+        color: new THREE.Color("#7d8cff"),
+        emissive: new THREE.Color("#7d8cff"),
+        emissiveIntensity: 0.15,
+      })
     );
     probe.position.set(0, 0, 0.34);
 
