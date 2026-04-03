@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run check:conflicts && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:conflicts": "! rg -n --hidden --glob '!.git' --glob '!node_modules' --glob '!.next' '^(<<<<<<<|=======|>>>>>>>)' ."
   },
   "dependencies": {
     "@next/third-parties": "^16.2.2",
