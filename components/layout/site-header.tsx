@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
@@ -39,10 +40,10 @@ export function SiteHeader() {
     <>
       <header
         className={cn(
-          "sticky top-0 z-50 transition-all duration-200 ease-out",
+          "sticky top-0 z-50 transition-all duration-300 ease-out",
           isScrolled
-            ? "border-b border-border/80 bg-background/90 backdrop-blur-md"
-            : "border-b border-transparent bg-background/70"
+            ? "border-b border-border/90 bg-background/80 shadow-[0_14px_40px_rgba(44,39,70,0.08)] backdrop-blur-xl"
+            : "border-b border-transparent bg-transparent"
         )}
       >
         <Container className="flex h-16 items-center justify-between md:h-20">
@@ -143,7 +144,7 @@ export function SiteHeader() {
         {isMobileMenuOpen ? (
           <>
             <motion.div
-              className="fixed inset-0 z-40 bg-foreground/10 backdrop-blur-[2px] md:hidden"
+              className="fixed inset-0 z-40 bg-[#261f3d]/15 backdrop-blur-[3px] md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -159,7 +160,7 @@ export function SiteHeader() {
               transition={{ duration: 0.22, ease: "easeOut" }}
             >
               <Container>
-                <div className="rounded-[1.5rem] border border-border/80 bg-background p-3.5 shadow-[0_24px_60px_rgba(17,18,20,0.08)]">
+                <div className="rounded-[1.5rem] border border-border/90 bg-card/95 p-3.5 shadow-[0_20px_54px_rgba(44,39,70,0.14)] backdrop-blur-md">
                   <nav className="space-y-1.5">
                     {navigationItems.map((item) => (
                       <a
@@ -173,7 +174,7 @@ export function SiteHeader() {
                     ))}
                   </nav>
 
-                  <div className="mt-3 border-t border-border/70 pt-3">
+                  <div className="mt-3 border-t border-border/80 pt-3">
                     <Button href={primaryCta.href} className="h-11 w-full">
                       {primaryCta.label}
                     </Button>
