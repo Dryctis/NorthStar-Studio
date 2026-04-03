@@ -33,7 +33,7 @@ export function HeroSection() {
             className="max-w-4xl text-[2.35rem] font-semibold leading-[1.03] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
             {...motionPresets.heroText}
           >
-           Landing pages y sitios web de alto impacto para negocios de servicios
+            Landing pages y sitios web de alto impacto para negocios de servicios
           </motion.h1>
 
           <motion.p
@@ -50,10 +50,17 @@ export function HeroSection() {
             className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4 md:mt-11"
             {...motionPresets.heroText}
           >
-            <Button href="#contact" className="h-12 px-7 text-sm shadow-[0_10px_26px_rgba(17,18,20,0.16)] sm:h-12 sm:text-[15px]">
+            <Button
+              href="#contact"
+              className="h-12 px-7 text-sm shadow-[0_10px_26px_rgba(17,18,20,0.16)] sm:h-12 sm:text-[15px]"
+            >
               Agendar llamada estratégica
             </Button>
-            <Button href="#services" variant="secondary" className="h-12 px-6 text-sm sm:text-[15px]">
+            <Button
+              href="#services"
+              variant="secondary"
+              className="h-12 px-6 text-sm sm:text-[15px]"
+            >
               Ver cómo funciona
             </Button>
           </motion.div>
@@ -66,7 +73,7 @@ export function HeroSection() {
             <span className="hidden h-1 w-1 rounded-full bg-border sm:inline-block" />
             <span>Diseño que transmite valor</span>
             <span className="hidden h-1 w-1 rounded-full bg-border sm:inline-block" />
-            <span>Base sólida y escalable en NextJS</span>
+            <span>Base sólida y escalable en Next.js</span>
           </motion.div>
         </motion.div>
 
