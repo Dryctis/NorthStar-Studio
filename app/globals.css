@@ -99,6 +99,6 @@ body {
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--accent) 24%, white 76%);
+  background: rgba(111, 125, 243, 0.22);
   color: var(--foreground);
 }
