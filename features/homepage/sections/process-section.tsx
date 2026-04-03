@@ -67,7 +67,7 @@ function ProcessStepCard({ step, index, total, scrollYProgress }: ProcessStepCar
     <motion.div
       className="relative lg:sticky"
       style={{
-        top: `calc(6rem + ${index * 1.15}rem)`,
+        top: `calc(5.5rem + ${index * 1.1}rem)`,
         y: prefersReducedMotion ? 0 : y,
         opacity: prefersReducedMotion ? 1 : opacity,
         scale: prefersReducedMotion ? 1 : scale,
@@ -99,7 +99,7 @@ export function ProcessSection() {
   const stackRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: stackRef,
-    offset: ["start 82%", "end 36%"],
+    offset: ["start 78%", "end 22%"],
   });
 
   return (
@@ -113,9 +113,9 @@ export function ProcessSection() {
         />
       </Reveal>
 
-      <div ref={stackRef} className="relative mt-10 space-y-4 sm:mt-12 sm:space-y-5 lg:mt-16 lg:space-y-0">
+      <div ref={stackRef} className="relative mt-10 space-y-4 pb-2 sm:mt-12 sm:space-y-5 lg:mt-16 lg:space-y-6 lg:pb-16">
         {steps.map((step, index) => (
-          <div key={step.number} className={index === 0 ? "" : "lg:-mt-20"}>
+          <div key={step.number} className="lg:min-h-[12rem]">
             <ProcessStepCard
               step={step}
               index={index}
