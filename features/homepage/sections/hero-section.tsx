@@ -109,7 +109,7 @@ export function HeroSection() {
                   </div>
                 </div>
 
-                <div className="grid gap-3 grid-cols-3 sm:gap-4">
+                <div className="grid grid-cols-3 gap-3 sm:gap-4">
                   <div className="rounded-2xl border border-border/70 bg-card p-3 sm:p-4">
                     <div className="h-2.5 w-10 rounded-full bg-secondary sm:h-3 sm:w-16" />
                     <div className="mt-3 h-4 w-full rounded-full bg-secondary sm:mt-4 sm:h-5" />
