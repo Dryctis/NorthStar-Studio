@@ -77,6 +77,7 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
 
+        <motion.div className="relative mx-auto w-full max-w-[30rem] lg:max-w-none" {...motionPresets.heroVisual}>
         <motion.div
           className="relative mx-auto w-full max-w-[30rem] lg:max-w-none"
           {...motionPresets.heroVisual}
