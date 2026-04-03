@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { navigationItems, primaryCta } from "@/data/site/navigation";
@@ -45,20 +46,26 @@ export function SiteHeader() {
         )}
       >
         <Container className="flex h-16 items-center justify-between md:h-20">
-          <a
+          <Link
             href="/"
-            className="flex items-center gap-2.5 text-sm font-semibold tracking-tight text-foreground"
+            className="group flex items-center gap-3 text-sm font-semibold tracking-tight text-foreground"
           >
-            <NorthstarMark className="h-5 w-5 text-foreground" />
-            <span>Northstar Studio</span>
-          </a>
+            <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/80 bg-card/80">
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full bg-accent/20 blur-md transition-opacity duration-300 group-hover:opacity-90"
+              />
+              <NorthstarMark className="relative h-5 w-5 text-accent" />
+            </span>
+            <span className="text-sm tracking-[0.02em]">Northstar Studio</span>
+          </Link>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-2 rounded-full border border-border/80 bg-card/70 px-2 py-1 shadow-[0_8px_24px_rgba(44,39,70,0.06)] md:flex">
             {navigationItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                className="rounded-full px-3 py-1.5 text-sm text-muted-foreground transition-colors duration-200 hover:bg-secondary hover:text-foreground"
               >
                 {item.label}
               </a>
@@ -70,80 +77,65 @@ export function SiteHeader() {
           </div>
 
           <button
-  type="button"
-  aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
-  aria-expanded={isMobileMenuOpen}
-  onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-card text-foreground transition-colors hover:bg-secondary md:hidden"
->
-  <span className="sr-only">
-    {isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
-  </span>
+            type="button"
+            aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/90 bg-card/90 text-foreground transition-colors hover:bg-secondary md:hidden"
+          >
+            <span className="sr-only">
+              {isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            </span>
 
-  <div className="relative h-[18px] w-[18px]">
-    <span
-      className={cn(
-        "absolute inset-0 transition-all duration-200 ease-out",
-        isMobileMenuOpen ? "scale-90 opacity-0" : "scale-100 opacity-100"
-      )}
-    >
-      <svg
-        viewBox="0 0 18 18"
-        className="h-[18px] w-[18px]"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path
-          d="M3 4.75H15"
-          stroke="currentColor"
-          strokeWidth="1.7"
-          strokeLinecap="round"
-        />
-        <path
-          d="M3 9H15"
-          stroke="currentColor"
-          strokeWidth="1.7"
-          strokeLinecap="round"
-        />
-        <path
-          d="M3 13.25H15"
-          stroke="currentColor"
-          strokeWidth="1.7"
-          strokeLinecap="round"
-        />
-      </svg>
-    </span>
+            <div className="relative h-[18px] w-[18px]">
+              <span
+                className={cn(
+                  "absolute inset-0 transition-all duration-200 ease-out",
+                  isMobileMenuOpen ? "scale-90 opacity-0" : "scale-100 opacity-100"
+                )}
+              >
+                <svg
+                  viewBox="0 0 18 18"
+                  className="h-[18px] w-[18px]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path d="M3 4.75H15" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M3 9H15" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M3 13.25H15" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                </svg>
+              </span>
 
-    <span
-      className={cn(
-        "absolute inset-0 transition-all duration-200 ease-out",
-        isMobileMenuOpen ? "scale-100 opacity-100" : "scale-90 opacity-0"
-      )}
-    >
-      <svg
-        viewBox="0 0 18 18"
-        className="h-[18px] w-[18px]"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path
-          d="M4.5 4.5L13.5 13.5"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-        />
-        <path
-          d="M13.5 4.5L4.5 13.5"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-        />
-      </svg>
-    </span>
-  </div>
-</button>
+              <span
+                className={cn(
+                  "absolute inset-0 transition-all duration-200 ease-out",
+                  isMobileMenuOpen ? "scale-100 opacity-100" : "scale-90 opacity-0"
+                )}
+              >
+                <svg
+                  viewBox="0 0 18 18"
+                  className="h-[18px] w-[18px]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4.5 4.5L13.5 13.5"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M13.5 4.5L4.5 13.5"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+            </div>
+          </button>
         </Container>
       </header>
 
