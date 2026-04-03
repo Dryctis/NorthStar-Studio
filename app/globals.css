@@ -75,3 +75,24 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   text-rendering: optimizeLegibility;
 }
+
+.section-surface-soft {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--background) 92%, white 8%) 0%,
+    var(--background) 100%
+  );
+}
+
+.section-surface-ivory {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--background) 88%, var(--secondary) 12%) 0%,
+    color-mix(in oklab, var(--background) 94%, var(--secondary) 6%) 100%
+  );
+}
+
+.section-divider-soft {
+  border-top: 1px solid color-mix(in oklab, var(--border) 80%, white 20%);
+  border-bottom: 1px solid color-mix(in oklab, var(--border) 78%, white 22%);
+}

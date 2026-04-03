@@ -7,10 +7,10 @@ import { motionPresets } from "@/lib/motion";
 
 export function HeroSection() {
   return (
-    <Section className="overflow-hidden py-10 sm:py-12 md:py-20 lg:py-28">
-      <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+    <Section className="section-surface-soft overflow-hidden py-12 sm:py-14 md:py-22 lg:py-30">
+      <div className="grid items-center gap-12 sm:gap-14 lg:grid-cols-[1.14fr_0.86fr] lg:gap-20">
         <motion.div
-          className="max-w-3xl"
+          className="max-w-2xl lg:max-w-3xl"
           initial="initial"
           animate="animate"
           variants={{
@@ -23,21 +23,21 @@ export function HeroSection() {
           }}
         >
           <motion.p
-            className="mb-3 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground sm:mb-4 sm:text-xs md:mb-5"
+            className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground sm:mb-5 sm:text-xs md:mb-6"
             {...motionPresets.heroText}
           >
             Northstar Studio
           </motion.p>
 
           <motion.h1
-            className="max-w-4xl text-4xl font-semibold leading-[1.02] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+            className="max-w-4xl text-[2.35rem] font-semibold leading-[1.03] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
             {...motionPresets.heroText}
           >
            Landing pages y sitios web de alto impacto para negocios de servicios
           </motion.h1>
 
           <motion.p
-            className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:mt-6 sm:text-lg sm:leading-8 md:mt-7 md:text-xl"
+            className="mt-6 max-w-xl text-base leading-7 text-muted-foreground sm:mt-7 sm:text-lg sm:leading-8 md:mt-8 md:text-xl"
             {...motionPresets.heroText}
           >
             Diseñamos landing pages y experiencias web para negocios que
@@ -47,17 +47,19 @@ export function HeroSection() {
           </motion.p>
 
           <motion.div
-            className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4 md:mt-10"
+            className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4 md:mt-11"
             {...motionPresets.heroText}
           >
-            <Button href="#contact">Agendar llamada estratégica</Button>
-            <Button href="#services" variant="secondary">
+            <Button href="#contact" className="h-12 px-7 text-sm shadow-[0_10px_26px_rgba(17,18,20,0.16)] sm:h-12 sm:text-[15px]">
+              Agendar llamada estratégica
+            </Button>
+            <Button href="#services" variant="secondary" className="h-12 px-6 text-sm sm:text-[15px]">
               Ver cómo funciona
             </Button>
           </motion.div>
 
           <motion.div
-            className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground sm:mt-8 sm:gap-x-6 sm:text-sm md:mt-10 md:gap-x-8"
+            className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground sm:mt-9 sm:gap-x-6 sm:text-sm md:mt-11 md:gap-x-8"
             {...motionPresets.heroText}
           >
             <span>Estructura pensada para convertir</span>
@@ -68,11 +70,11 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
 
-        <motion.div className="relative mx-auto w-full max-w-md lg:max-w-none" {...motionPresets.heroVisual}>
-          <div className="absolute -left-6 top-6 h-20 w-20 rounded-full bg-accent/8 blur-3xl sm:-left-8 sm:top-8 sm:h-24 sm:w-24 md:-left-10 md:top-10 md:h-32 md:w-32" />
-          <div className="absolute -right-4 bottom-4 h-20 w-20 rounded-full bg-foreground/5 blur-3xl sm:-right-6 sm:bottom-5 sm:h-24 sm:w-24 md:-right-8 md:bottom-6 md:h-28 md:w-28" />
+        <motion.div className="relative mx-auto w-full max-w-[30rem] lg:max-w-none" {...motionPresets.heroVisual}>
+          <div className="absolute -left-8 top-8 hidden h-28 w-28 rounded-full bg-accent/8 blur-3xl sm:block md:-left-10 md:top-10 md:h-32 md:w-32" />
+          <div className="absolute -right-6 bottom-5 hidden h-24 w-24 rounded-full bg-foreground/5 blur-3xl sm:block md:-right-8 md:bottom-6 md:h-28 md:w-28" />
 
-          <div className="relative rounded-[1.6rem] border border-border/80 bg-card p-3 shadow-[0_20px_60px_rgba(17,18,20,0.06)] sm:rounded-[1.8rem] sm:p-4 md:rounded-[2rem]">
+          <div className="relative rounded-[1.6rem] border border-border/80 bg-card p-3 shadow-[0_18px_52px_rgba(17,18,20,0.06)] sm:rounded-[1.8rem] sm:p-4 md:rounded-[2rem]">
             <div className="rounded-[1.2rem] border border-border/70 bg-background p-4 sm:rounded-[1.35rem] sm:p-4 md:rounded-[1.5rem] md:p-5">
               <div className="flex items-center justify-between border-b border-border/70 pb-3 sm:pb-4">
                 <div>

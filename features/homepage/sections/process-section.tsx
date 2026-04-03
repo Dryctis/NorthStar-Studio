@@ -31,7 +31,7 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <Section id="process">
+    <Section id="process" className="section-surface-ivory section-divider-soft">
       <Reveal>
         <SectionHeading
           eyebrow="Proceso de trabajo"
@@ -41,22 +41,31 @@ export function ProcessSection() {
         />
       </Reveal>
 
-      <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 lg:mt-16 lg:grid-cols-4 lg:gap-6">
+      <div className="relative mt-10 grid gap-4 sm:mt-12 sm:gap-5 lg:mt-16 lg:grid-cols-4 lg:gap-6">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-0 right-0 top-6 hidden h-px bg-gradient-to-r from-transparent via-border/80 to-transparent lg:block"
+        />
         {steps.map((step, index) => (
           <Reveal key={step.number} variant="card" delay={index * 0.06}>
-            <div className="rounded-[1.5rem] border border-border/70 bg-card p-5 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(17,18,20,0.05)] sm:rounded-[1.6rem] sm:p-6 lg:rounded-[1.75rem] lg:p-7">
-              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground sm:text-xs">
-                {step.number}
-              </p>
+            <article
+              className="relative rounded-[1.5rem] border border-border/70 bg-card p-5 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(17,18,20,0.05)] sm:rounded-[1.6rem] sm:p-6 lg:rounded-[1.75rem] lg:p-7"
+            >
+              <div className="mb-4 flex items-center gap-3 sm:mb-5">
+                <span className="inline-flex h-9 min-w-9 items-center justify-center rounded-full border border-border/80 bg-background px-3 text-[11px] font-semibold tracking-[0.18em] text-muted-foreground sm:h-10 sm:min-w-10 sm:text-xs">
+                  {step.number}
+                </span>
+                <span className="h-px flex-1 bg-border/70" />
+              </div>
 
-              <h3 className="mt-3 text-xl font-semibold tracking-tight text-foreground sm:mt-4 sm:text-[22px] lg:text-2xl">
+              <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-[22px] lg:text-2xl">
                 {step.title}
               </h3>
 
               <p className="mt-3 text-sm leading-7 text-muted-foreground sm:mt-4 sm:text-[15px] lg:text-base">
                 {step.description}
               </p>
-            </div>
+            </article>
           </Reveal>
         ))}
       </div>
