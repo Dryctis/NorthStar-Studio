@@ -16,6 +16,7 @@ export function Northstar3DMark({ className }: Northstar3DMarkProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [isReducedMotion, setIsReducedMotion] = useState(false);
   const [scriptReady, setScriptReady] = useState(false);
+  const [scriptFailed, setScriptFailed] = useState(false);
 
   useEffect(() => {
     const mobileQuery = window.matchMedia("(max-width: 767px)");
@@ -37,7 +38,15 @@ export function Northstar3DMark({ className }: Northstar3DMarkProps) {
   }, []);
 
   useEffect(() => {
-    if (!scriptReady || isMobile || isReducedMotion || !mountRef.current) return;
+    if (scriptReady || scriptFailed) return;
+    const timeout = window.setTimeout(() => {
+      setScriptFailed(true);
+    }, 3500);
+    return () => window.clearTimeout(timeout);
+  }, [scriptReady, scriptFailed]);
+
+  useEffect(() => {
+    if (!scriptReady || isMobile || isReducedMotion || !mountRef.current || scriptFailed) return;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const THREE = (window as unknown as { THREE?: any }).THREE;
@@ -47,6 +56,7 @@ export function Northstar3DMark({ className }: Northstar3DMarkProps) {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
     camera.position.set(0, 0, 6.2);
+    camera.lookAt(0, 0, 0);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
@@ -72,6 +82,17 @@ export function Northstar3DMark({ className }: Northstar3DMarkProps) {
       metalness: 0.1,
       roughness: 0.48,
     });
+
+    // Geometría de prueba temporal para validar pipeline 3D visible
+    const probe = new THREE.Mesh(
+      new THREE.SphereGeometry(0.08, 16, 16),
+      new THREE.MeshStandardMaterial({
+        color: new THREE.Color("#7d8cff"),
+        emissive: new THREE.Color("#7d8cff"),
+        emissiveIntensity: 0.15,
+      })
+    );
+    probe.position.set(0, 0, 0.34);
 
     const core = new THREE.Mesh(new THREE.SphereGeometry(0.22, 20, 20), materialFront);
     const halo = new THREE.Mesh(new THREE.TorusGeometry(0.44, 0.028, 20, 100), materialFront);
@@ -141,14 +162,15 @@ export function Northstar3DMark({ className }: Northstar3DMarkProps) {
 
     group.add(core);
     group.add(halo);
+    group.add(probe);
     bars.forEach((bar) => group.add(bar));
 
-    const ambient = new THREE.AmbientLight(0xf8f2e8, 0.72);
-    const key = new THREE.DirectionalLight(0xffffff, 1.05);
+    const ambient = new THREE.AmbientLight(0xf8f2e8, 0.78);
+    const key = new THREE.DirectionalLight(0xffffff, 1.1);
     key.position.set(2.6, 2.1, 3.4);
-    const fill = new THREE.DirectionalLight(0xc9cfff, 0.52);
+    const fill = new THREE.DirectionalLight(0xc9cfff, 0.56);
     fill.position.set(-2.4, -1.2, 2.8);
-    const rim = new THREE.DirectionalLight(0xa9b4ff, 0.45);
+    const rim = new THREE.DirectionalLight(0xa9b4ff, 0.48);
     rim.position.set(0, 2.4, -3.2);
 
     scene.add(ambient, key, fill, rim);
@@ -205,9 +227,9 @@ export function Northstar3DMark({ className }: Northstar3DMarkProps) {
       renderer.dispose();
       container.innerHTML = "";
     };
-  }, [scriptReady, isMobile, isReducedMotion]);
+  }, [scriptReady, isMobile, isReducedMotion, scriptFailed]);
 
-  const simpleMode = isMobile || isReducedMotion;
+  const simpleMode = isMobile || isReducedMotion || scriptFailed;
 
   return (
     <div className={className}>
@@ -215,6 +237,7 @@ export function Northstar3DMark({ className }: Northstar3DMarkProps) {
         src="https://unpkg.com/three@0.169.0/build/three.min.js"
         strategy="afterInteractive"
         onLoad={() => setScriptReady(true)}
+        onError={() => setScriptFailed(true)}
       />
 
       {simpleMode ? (
