@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { NorthstarHeroViewer } from "@/components/ui/northstar-hero-viewer";
+import { Northstar3DMark } from "@/components/ui/northstar-3d-mark";
 import { Section } from "@/components/ui/section";
 import { motionPresets } from "@/lib/motion";
 
@@ -100,7 +100,7 @@ export function HeroSection() {
               </div>
 
               <div className="mt-4">
-                <NorthstarHeroViewer />
+                <Northstar3DMark />
               </div>
 
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
