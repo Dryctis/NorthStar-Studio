@@ -58,10 +58,10 @@ function ProcessStepCard({ step, index, total, scrollYProgress }: ProcessStepCar
   const end = start + 0.27;
 
   const cardProgress = useTransform(scrollYProgress, [start, end], [0, 1]);
-  const y = useTransform(cardProgress, [0, 1], [40, 0]);
-  const opacity = useTransform(cardProgress, [0, 1], [0.45, 1]);
+  const y = useTransform(cardProgress, [0, 1], [52, 0]);
+  const opacity = useTransform(cardProgress, [0, 1], [0.36, 1]);
   const scale = useTransform(cardProgress, [0, 1], [0.97, 1]);
-  const glowOpacity = useTransform(cardProgress, [0, 1], [0, 0.2]);
+  const glowOpacity = useTransform(cardProgress, [0, 1], [0, 0.24]);
 
   return (
     <motion.div
@@ -99,7 +99,7 @@ export function ProcessSection() {
   const stackRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: stackRef,
-    offset: ["start 78%", "end 22%"],
+    offset: ["start 82%", "end 16%"],
   });
 
   return (
@@ -113,9 +113,9 @@ export function ProcessSection() {
         />
       </Reveal>
 
-      <div ref={stackRef} className="relative mt-10 space-y-4 pb-2 sm:mt-12 sm:space-y-5 lg:mt-16 lg:space-y-6 lg:pb-16">
+      <div ref={stackRef} className="relative mt-10 space-y-4 pb-2 sm:mt-12 sm:space-y-5 lg:mt-16 lg:space-y-7 lg:pb-24">
         {steps.map((step, index) => (
-          <div key={step.number} className="lg:min-h-[12rem]">
+          <div key={step.number} className="lg:min-h-[13.5rem]">
             <ProcessStepCard
               step={step}
               index={index}
